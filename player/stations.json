@@ -1,0 +1,212 @@
+{
+    "_comment": "A LIST OF RADIO STATIONS FOR THE PLAYER — now structured with country + category",
+
+    "CH": {
+        "Radio Swiss Jazz": {
+            "url": "http://stream.srg-ssr.ch/m/rsj/mp3_128",
+            "category": "Jazz"
+        },
+        "Radio Swiss Pop": {
+            "url": "http://stream.srg-ssr.ch/m/rsp/mp3_128",
+            "category": "Pop"
+        },
+        "Radio Swiss Classic": {
+            "url": "http://stream.srg-ssr.ch/m/rsc_de/mp3_128",
+            "category": "Classical"
+        }
+    },
+
+    "US": {
+        "Radio Paradise (Main)": {
+            "url": "http://stream.radioparadise.com/mp3-192",
+            "category": "Eclectic"
+        },
+        "Radio Paradise (Rock Mix)": {
+            "url": "http://stream.radioparadise.com/rock-192",
+            "category": "Rock"
+        },
+        "Radio Paradise (Mellow Mix)": {
+            "url": "http://stream.radioparadise.com/mellow-192",
+            "category": "Chill"
+        },
+        "Radio Paradise (World Mix)": {
+            "url": "http://stream.radioparadise.com/world-192",
+            "category": "World"
+        },
+
+        "Nightride FM": {
+            "url": "https://stream.nightride.fm/nightride.mp3",
+            "category": "Synthwave"
+        },
+        "Chillhop Radio": {
+            "url": "https://stream.chillhop.com/chillhop.mp3",
+            "category": "LoFi"
+        },
+        "Lofi Girl": {
+            "url": "https://stream.lofigirl.com/lofi.mp3",
+            "category": "LoFi"
+        },
+
+        "Smooth Jazz Florida": {
+            "url": "http://us4.internet-radio.com:8258/stream",
+            "category": "Jazz"
+        },
+        "Jazz24": {
+            "url": "https://live.wostreaming.net/direct/ppm-jazz24mp3-ibc1",
+            "category": "Jazz"
+        },
+        "The Jazz Groove (East)": {
+            "url": "https://jazzgroove-east.streamguys1.com/jazzgroove-east.mp3",
+            "category": "Jazz"
+        },
+        "The Jazz Groove (West)": {
+            "url": "https://jazzgroove-west.streamguys1.com/jazzgroove-west.mp3",
+            "category": "Jazz"
+        },
+
+        "SomaFM Groove Salad": {
+            "url": "https://ice2.somafm.com/groovesalad-128-mp3",
+            "category": "Ambient"
+        },
+        "SomaFM Drone Zone": {
+            "url": "https://ice2.somafm.com/dronezone-128-mp3",
+            "category": "Ambient"
+        },
+        "SomaFM Secret Agent": {
+            "url": "https://ice2.somafm.com/secretagent-128-mp3",
+            "category": "Lounge"
+        },
+        "SomaFM Indie Pop Rocks": {
+            "url": "https://ice2.somafm.com/indiepop-128-mp3",
+            "category": "Indie"
+        },
+        "SomaFM DEF CON Radio": {
+            "url": "https://ice2.somafm.com/defcon-128-mp3",
+            "category": "Electronic"
+        },
+        "SomaFM Space Station": {
+            "url": "https://ice2.somafm.com/spacestation-128-mp3",
+            "category": "Ambient"
+        },
+
+        "KEXP Seattle": {
+            "url": "https://kexp-mp3-128.streamguys1.com/kexp128.mp3",
+            "category": "Indie"
+        },
+
+        "WNYC FM": {
+            "url": "https://fm939.wnyc.org/wnycfm",
+            "category": "News/Talk"
+        },
+        "WNYC AM": {
+            "url": "https://am820.wnyc.org/wnycam",
+            "category": "News/Talk"
+        },
+
+        "181.fm The Breeze": {
+            "url": "http://listen.181fm.com/181-breeze_128k.mp3",
+            "category": "Easy Listening"
+        },
+        "181.fm The Office": {
+            "url": "http://listen.181fm.com/181-office_128k.mp3",
+            "category": "Pop"
+        },
+        "181.fm The Beat": {
+            "url": "http://listen.181fm.com/181-beat_128k.mp3",
+            "category": "Hip-Hop"
+        },
+        "181.fm Classic Hits": {
+            "url": "http://listen.181fm.com/181-greatoldies_128k.mp3",
+            "category": "Oldies"
+        },
+        "181.fm UK Top 40": {
+            "url": "http://listen.181fm.com/181-uktop40_128k.mp3",
+            "category": "Pop"
+        },
+
+        "Deep House Lounge": {
+            "url": "https://us2.internet-radio.com/proxy/deephouselounge?mp=/stream",
+            "category": "House"
+        }
+    },
+
+    "UK": {
+        "Classic FM": {
+            "url": "http://media-ice.musicradio.com/ClassicFMMP3",
+            "category": "Classical"
+        },
+        "BBC Radio 1": {
+            "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_one",
+            "category": "Pop"
+        },
+        "BBC Radio 2": {
+            "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_two",
+            "category": "Adult Contemporary"
+        },
+        "BBC Radio 3": {
+            "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_three",
+            "category": "Classical"
+        },
+        "BBC Radio 4": {
+            "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_radio_fourfm",
+            "category": "News/Talk"
+        },
+        "BBC 6 Music": {
+            "url": "http://stream.live.vc.bbcmedia.co.uk/bbc_6music",
+            "category": "Alternative"
+        },
+        "Radio Caroline": {
+            "url": "https://sc6.radiocaroline.net/stream.mp3",
+            "category": "Rock"
+        },
+        "Radio X London": {
+            "url": "http://media-ice.musicradio.com/RadioXUKMP3",
+            "category": "Rock"
+        }
+    },
+
+    "ES": {
+        "Ibiza Global Radio": {
+            "url": "http://ibizaglobalradio.streaming-pro.com:8024/stream",
+            "category": "Electronic"
+        }
+    },
+
+    "FR": {
+        "Radio Nova (France)": {
+            "url": "http://novazz.ice.infomaniak.ch/novazz-128.mp3",
+            "category": "Eclectic"
+        },
+        "FIP Radio": {
+            "url": "http://direct.fipradio.fr/live/fip-midfi.mp3",
+            "category": "Eclectic"
+        },
+        "FIP Groove": {
+            "url": "http://direct.fipradio.fr/live/fipgroove-midfi.mp3",
+            "category": "Groove"
+        },
+        "FIP Rock": {
+            "url": "http://direct.fipradio.fr/live/fiprock-midfi.mp3",
+            "category": "Rock"
+        },
+        "FIP Jazz": {
+            "url": "http://direct.fipradio.fr/live/fipjazz-midfi.mp3",
+            "category": "Jazz"
+        },
+        "FIP World": {
+            "url": "http://direct.fipradio.fr/live/fipworld-midfi.mp3",
+            "category": "World"
+        }
+    },
+
+    "PL": {
+        "Dance Wave Retro": {
+            "url": "http://stream.dancewave.online:8080/retro.mp3",
+            "category": "Retro"
+        },
+        "Dance Wave Classic": {
+            "url": "http://stream.dancewave.online:8080/classic.mp3",
+            "category": "Dance"
+        }
+    }
+}

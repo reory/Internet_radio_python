@@ -1,0 +1,72 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.log
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Build / distribution
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+
+# -------------------------
+# OS-specific files
+# -------------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# -------------------------
+# IDE / Editor files
+# -------------------------
+
+# VSCode
+.vscode/
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+
+# -------------------------
+# Project-specific
+# -------------------------
+
+# VLC cache (if any)
+vlc-cache/
+
+# Tkinter temp files
+*.tcl
+
+# Local config overrides
+config.local.json
+settings.local.json
+
+# stations.json — it's part of the app!
+# player/stations.json
