@@ -89,8 +89,21 @@ MIT License — free to use, modify, and share.
 Built by Roy Peters — a hands‑on architect exploring Python GUI development, 
 modular design, and media streaming.
 
+## 🤝 Contributing
 
+Contributions, ideas, and feedback are welcome!
 
+If you’d like to help improve this project:
 
+1. **Fork** the repository  
+2. Create a new branch for your feature or fix  
+3. Make your changes  
+4. Submit a **pull request** with a clear description
 
+You can also open **issues** for:
+- Bug reports  
+- Feature requests  
+- UI/UX suggestions  
+- Station list improvements  
 
+This is my first public project, so constructive feedback is especially appreciated as the app continues to grow.
