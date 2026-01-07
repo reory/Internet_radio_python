@@ -1,3 +1,11 @@
+![Python](https://img.shields.io/badge/Python-3.11-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Repo Size](https://img.shields.io/github/repo-size/reory/Internet_radio_python)
+![Last Commit](https://img.shields.io/github/last-commit/reory/Internet_radio_python)
+![Stars](https://img.shields.io/github/stars/reory/Internet_radio_python?style=social)
+
+# Internet Radio Player
+
 # Internet Radio (Python + CustomTkinter + VLC)
 
 A modern, modular Internet Radio application built with **Python**, **CustomTkinter**, and **python-vlc**.  
