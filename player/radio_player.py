@@ -1,6 +1,5 @@
 # Internet radio player
 # 6.1.26
-
 import vlc
 
 class RadioPlayer:
@@ -14,7 +13,7 @@ class RadioPlayer:
             if self.player:
                 self.player.stop()
 
-            instance:  vlc.Instance = vlc.Instance()
+            instance:  vlc.Instance = vlc.Instance() # type:ignore
             self.media = instance.media_new(url)
             self.player = instance.media_player_new()
             self.player.set_media(self.media)
@@ -47,13 +46,14 @@ class RadioPlayer:
 
         # Ask VLC to parse metadata (non-blocking)
         try:
-            self.media.parse_with_options(vlc.MediaParseFlag.network, timeout=0)
+            self.media.parse_with_options(
+                vlc.MediaParseFlag.network, timeout=0) #type:ignore
         except Exception:
             return None
 
         # Always define variables to avoid NameError
-        title = self.media.get_meta(vlc.Meta.Title) or ""
-        artist = self.media.get_meta(vlc.Meta.Artist) or ""
+        title = self.media.get_meta(vlc.Meta.Title) or "" #type:ignore
+        artist = self.media.get_meta(vlc.Meta.Artist) or "" #type:ignore
 
         if artist and title:
             return f"{artist} - {title}"
