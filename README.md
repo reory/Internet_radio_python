@@ -23,9 +23,13 @@ A modern, modular Internet Radio application built with **Python**, **CustomTkin
 ---
 
 ### 🖥️ Main Window interface
+
 ![Main Window](assets/screenshots/main_window.png)
 
+---
+
 ### 🎵 Feature Gallery
+
 | Now Playing Card | Station List | Search Bar |
 | :--- | :--- | :--- |
 | ![Now Playing](assets/screenshots/now_playing.png) | ![Station List](assets/screenshots/station_list.png) | ![Search Bar](assets/screenshots/search_bar.png) |
