@@ -22,8 +22,6 @@ A modern, modular Internet Radio application built with **Python**, **CustomTkin
 
 ---
 
-## 📸 Screenshots
-
 ### 🖥️ Main Window interface
 ![Main Window](assets/screenshots/main_window.png)
 
@@ -120,4 +118,4 @@ Contributions, ideas, and feedback are welcome! This is my first public project,
 - Version 1.0 Initial release. 
 - 4 passing unit tests. 
 
-**Built by Roy Peters** — [here](https://www.linkedin.com/in/roy-p-74980b382/)
+**Built by Roy Peters** — [Click here for contact info😁](https://www.linkedin.com/in/roy-p-74980b382/)
