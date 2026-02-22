@@ -4,101 +4,120 @@
 ![Last Commit](https://img.shields.io/github/last-commit/reory/Internet_radio_python)
 ![Stars](https://img.shields.io/github/stars/reory/Internet_radio_python?style=social)
 
-# Internet Radio Player
+# 🎵 Internet Radio Player
+### Powered by Python, CustomTkinter, and VLC
 
-# Internet Radio (Python + CustomTkinter + VLC)
-
-A modern, modular Internet Radio application built with **Python**, **CustomTkinter**, and **python-vlc**.  
-It features a clean UI, live metadata updates, station search, flag icons, and a modular architecture that makes future expansion easy.
+A modern, modular Internet Radio application built with **Python**, **CustomTkinter**, and **python-vlc**. This project features a clean UI, live metadata updates, and a modular architecture designed for easy expansion.
 
 ---
 
 ## 🚀 Features
 
-- **Play hundreds of online radio stations**
-- **Live metadata updates** (track titles, artist info, etc.)
-- **Search bar** for instant station filtering
-- **Country flags** for each station
-- **Scrollable station list**
-- **Now Playing card** with LIVE indicator
-- **Volume control + Stop button**
-- **Modular architecture** (easy to extend)
-- **JSON‑based station database**
+- **Global Streaming:** Play hundreds of online radio stations.
+- **Live Metadata:** Real-time updates for track titles and artist info.
+- **Smart Search:** Instant station filtering via the search bar.
+- **Visual Cues:** Country flags and "Now Playing" live indicators.
+- **User Control:** Integrated volume slider and stop functionality.
+- **Modular Design:** Clean separation between GUI components and player logic.
 
 ---
 
 ## 📸 Screenshots
 
-Below are some example screenshots of the Internet Radio app in action.  
-(You can add your own images to the `assets/screenshots/` folder and update the paths here.)
-
-### 🖥️ Main Window
+### 🖥️ Main Window interface
 ![Main Window](assets/screenshots/main_window.png)
 
-### 🎵 Now Playing Card
-![Now Playing](assets/screenshots/now_playing.png)
-
-### 📜 Station List
-![Station List](assets/screenshots/station_list.png)
-
-### 🔍 Search Bar
-![Search Bar](assets/screenshots/search_bar.png)
+### 🎵 Feature Gallery
+| Now Playing Card | Station List | Search Bar |
+| :--- | :--- | :--- |
+| ![Now Playing](assets/screenshots/now_playing.png) | ![Station List](assets/screenshots/station_list.png) | ![Search Bar](assets/screenshots/search_bar.png) |
 
 ---
 
 ## 🧩 Project Structure
-internet_radio/ │ ├── app.py ├── requirements.txt │ ├── gui/ │   ├── main_window.py │   ├── now_playing.py │   ├── station_list.py │   ├── controls.py │   └── search_bar.py │ ├── player/ │   ├── radio_player.py │   └── stations.py │ └── assets/ └── icons/ ├── stop.png ├── flags..
+
+```text
+internet_radio/
+├── app.py                 # Main entry point
+├── requirements.txt       # Python dependencies
+├── gui/                   # CustomTkinter UI Components
+│   ├── main_window.py
+│   ├── now_playing.py
+│   ├── station_list.py
+│   ├── controls.py
+│   └── search_bar.py
+├── player/                # Media Engine & Data
+│   ├── radio_player.py
+│   └── stations.json
+└── assets/                # Media & Icons
+    └── icons/
+```
 
 ---
 
-## Installation
+## 📦 Installation
 
-### Clone the repository
-
+1. **Clone the repository and install:**
 ```bash
-git clone https://github.com/reory/internet_radio_python.git
-cd internet-radio-python
-
-
-Install dependencies
+git clone https://github.com/reory/Internet_radio_python.git
+cd Internet_radio_python
 pip install -r requirements.txt
+```
 
+---
+> [!IMPORTANT]
+> This app requires the VLC media player (64-bit) installed on your system to function.
+> **DOWNLOAD VLC here [here](https://www.videolan.org/vlc/)**
 
-Install VLC
-This app uses python-vlc, which requires VLC installed on your system.
-Download VLC here:
-https://www.videolan.org/vlc/
+---
 
-Run the app
-python app.py
+## Usage
 
-Add Radio Stations which are stored in:
-player/stations.json
+This project requires both the backend and frontend to be running simultaneously.
 
-Future Plans
-[View the full project roadmap here](ROADMAP.md)
+1. **Run the app:** 
+   ```bash
+    python app.py
+    ```
 
-License
-MIT License — free to use, modify, and share.
+---
 
-Built by Roy Peters — a hands‑on architect exploring Python GUI development, 
-modular design, and media streaming.
+## Testing🚦
+The project includes a comprehensive suite of 4 tests covering radio searches, radio player, and the radio UI logic.
+
+To run the tests:
+```bash
+pytest
+```
+
+---
+
+## 🗺️ Future Plans & Roadmap
+I am currently working on scaling this project. Planned features include:
+
+- DuckDB Backend: Migrating stations.json to a high-performance database.
+
+- Geospatial Discovery: Interactive map for station selection.
+
+- Graphic Equalizer: Advanced audio frequency control.
+
+---
 
 ## 🤝 Contributing
+Contributions, ideas, and feedback are welcome! This is my first public project, so constructive feedback is especially appreciated as the app continues to grow.
 
-Contributions, ideas, and feedback are welcome!
+- Fork the repository.
 
-If you’d like to help improve this project:
+- Create a new branch (git checkout -b feature/YourFeature).
 
-1. **Fork** the repository  
-2. Create a new branch for your feature or fix  
-3. Make your changes  
-4. Submit a **pull request** with a clear description
+- Commit your changes.
 
-You can also open **issues** for:
-- Bug reports  
-- Feature requests  
-- UI/UX suggestions  
-- Station list improvements  
+- Submit a Pull Request.
 
-This is my first public project, so constructive feedback is especially appreciated as the app continues to grow.
+---
+
+## Notes
+- Version 1.0 Initial release. 
+- 4 passing unit tests. 
+
+**Built by Roy Peters** — [here](https://www.linkedin.com/in/roy-p-74980b382/)
