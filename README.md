@@ -56,7 +56,7 @@ internet_radio/ │ ├── app.py ├── requirements.txt │ ├── gu
 ### Clone the repository
 
 ```bash
-git clone https://github.com/reory/internet-radio-python.git
+git clone https://github.com/reory/internet_radio_python.git
 cd internet-radio-python
 
 
