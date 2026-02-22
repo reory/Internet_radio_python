@@ -76,12 +76,7 @@ Add Radio Stations which are stored in:
 player/stations.json
 
 Future Plans
-- Interactive world map for selecting stations by country
-- Favourites system
-- Categories & filters
-- Mini‑player mode
-- Buffering indicator
-- Better error handling for offline stream
+[View the full project roadmap here](ROADMAP.md)
 
 License
 MIT License — free to use, modify, and share.
