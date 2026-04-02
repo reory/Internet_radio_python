@@ -1,6 +1,7 @@
-import pytest
-from unittest.mock import MagicMock, patch
+import pytest # noqa: F401 - tells Ruff the linter pytest is used in this file.
+from unittest.mock import MagicMock
 import sys
+from gui.search_bar import SearchBar
 
 # Mock customtkinter BEFORE importing SearchBar
 class DummyFrame:
@@ -13,10 +14,6 @@ mock_ctk.CTkEntry = MagicMock()
 
 # Inject into sys.modules so import uses the mock
 sys.modules["customtkinter"] = mock_ctk
-
-from gui.search_bar import SearchBar
-
-
 
 # TEST: typing triggers callback
 def test_search_triggers_callback():

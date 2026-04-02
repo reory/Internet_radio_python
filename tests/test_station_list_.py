@@ -1,5 +1,6 @@
 import pytest
 from unittest.mock import MagicMock, patch
+from gui.station_list import StationList
 import sys
 
 # Mock customtkinter module before importing station_list
@@ -15,9 +16,6 @@ mock_ctk.CTkLabel = MagicMock
 mock_ctk.CTkButton = MagicMock
 
 sys.modules['customtkinter'] = mock_ctk
-
-from gui.station_list import StationList
-
 
 # FIXTURE: fake stations + flags
 @pytest.fixture
@@ -82,7 +80,7 @@ def test_play_button_calls_callback(sample_stations, sample_flags):
         parent = MagicMock()
         play_callback = MagicMock()
 
-        widget = StationList(parent, sample_stations, sample_flags, play_callback)
+        StationList(parent, sample_stations, sample_flags, play_callback)
 
         # Grab the first created button's command
         # mock_ctk.CTkButton was called with command=lambda: play_callback(name)

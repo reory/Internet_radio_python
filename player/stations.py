@@ -4,6 +4,7 @@ import os
 
 def load_stations():
     """Load station list from stations.json"""
+    
     json_path = os.path.join(os.path.dirname(__file__), "stations.json")
 
     with open(json_path, "r", encoding="utf-8") as f:
