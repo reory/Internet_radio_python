@@ -11,8 +11,8 @@ class Controls(ctk.CTkFrame):
             self,
             text="",
             image=stop_icon,
-            width=100,
-            height=80,
+            width=60,
+            height=60,
             command=stop_callback
         )
         self.stop_button.pack(pady=10)

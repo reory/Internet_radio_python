@@ -7,7 +7,6 @@ class SearchBar(ctk.CTkFrame):
         self.on_search = on_search
 
         # Renders a search box 
-
         self.entry = ctk.CTkEntry(
             self,
             placeholder_text="Search stations..",
@@ -18,7 +17,7 @@ class SearchBar(ctk.CTkFrame):
         # Bind key release to live search
         self.entry.bind("<KeyRelease>", self._search)
     
-        # Calls on search query whenever a user types in the search box.
+    # Calls on search query whenever a user types in the search box.
     def _search(self, event=None):
         query = self.entry.get().strip().lower()
         self.on_search(query)

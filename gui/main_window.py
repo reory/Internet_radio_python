@@ -8,6 +8,8 @@ from gui.search_bar import SearchBar
 from player.radio_player import RadioPlayer
 from player.stations import load_stations
 from PIL import Image
+from gui.world_map import WorldMap
+from gui.world_clock import WorldClock
 import os
 
 class MainWindow:
@@ -17,7 +19,7 @@ class MainWindow:
 
         self.root = ctk.CTk()
         self.root.title("Internet Radio Made with Python")
-        self.root.geometry("500x600")
+        self.root.geometry("1000x500")
 
         self.player = RadioPlayer()
         self.stations = load_stations()
@@ -37,20 +39,53 @@ class MainWindow:
         self.search_bar = SearchBar(self.root, self.filter_stations)
         self.search_bar.pack(fill="x", padx=10, pady=5)
 
-        # Station list
+        # World map panel
+        self.world_map = WorldMap(
+            self.root, 
+            image_path="assets/map/world_map.png",
+            )
+        self.world_map.pack(fill="x", padx=10, pady=10)
+        
+        # Create the clock and "glue" it to the world map label
+        self.clock_widget = WorldClock(self.world_map.label)
+        # Position it in the bottom-right corner of the map
+        self.clock_widget.place(relx=0.97, rely=0.95, anchor="se")
+
+        # Controls directly under the map
+        self.controls = Controls(
+            self.root, 
+            self.load_icon("stop.png", 20),
+            self.stop, 
+            self.change_volume
+        )
+        self.controls.pack(fill="x", padx=5, pady=5)
+        
+        # Station list below the Controls
         self.station_list = StationList(
             self.root, self.stations, self.flags, self.play_station
         )
         self.station_list.pack(fill="both", expand=True, padx=10, pady=10)
 
-        # Controls
-        stop_icon = self.load_icon("stop.png", 48)
-        self.controls = Controls(
-            self.root, stop_icon, self.stop, self.change_volume
-        )
-        self.controls.pack(pady=10)
-
         self.root.mainloop()
+
+    def on_country_click(self, country):
+        #print("Country clicked", country)
+
+        # Filter the list
+        self.filter_stations(country)
+
+        # Get the filtered stations
+        filtered = self.station_list.get_filtered_stations()
+
+        if not filtered:
+            print("No stations for that region:", country)
+            return
+
+        # Pick the first station
+        station = filtered[0]
+
+        # Play the StationList
+        self.play_station(station)
 
     def play_station(self, name):
         info = self.stations[name]
@@ -63,6 +98,17 @@ class MainWindow:
 
         # Playback succeeded → update UI
         self.now_playing.update_station(name, info["country"])
+
+        # Show flag on map
+        flag_img = self.flags.get(info["country"])
+        
+        # DEBUG PRINT
+        #print("flag img", flag_img, "country", info["country"])
+
+        self.world_map.show_flag(info["country"], flag_img)
+
+        # World clock
+        self.clock_widget.update_time(info["country"])
 
         # Apply live indicator
         self.now_playing.live_indicator.pack(anchor="w", padx=10)
@@ -88,7 +134,7 @@ class MainWindow:
         self.root.after(1000, self.update_metadata)
 
     def load_flag(self, country):
-        path = os.path.join("assets", "icons", f"{country}.png")
+        path = os.path.join("assets", "icons", f"{country.lower()}.png")
         if os.path.exists(path):
             img = Image.open(path)
             return ctk.CTkImage(light_image=img, dark_image=img, size=(20, 20))
@@ -98,6 +144,7 @@ class MainWindow:
         path = os.path.join("assets", "icons", filename)
         img = Image.open(path).resize((size, size))
         return ctk.CTkImage(light_image=img, dark_image=img, size=(size, size))
+
     
     def filter_stations(self, query):
         if not isinstance(query, str):

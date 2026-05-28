@@ -13,7 +13,7 @@ This document outlines the planned features and technical milestones for the evo
 - [ ] **Mini-Player Mode:** A compact UI view for background listening.
 
 ## 🔴 Phase 3: Advanced Features
-- [ ] **World Map Discovery:** Integration with Folium/CustomTkinter to select stations via a global map.
+- [x] **World Map Discovery:** Integration with Folium/CustomTkinter to select stations via a global map.
 - [ ] **Radio-Browser API:** Real-time synchronization with the Open Source Radio Browser database (30k+ stations).
 - [ ] **Stream Recording:** Capability to save live broadcasts to local MP3 files.
 
