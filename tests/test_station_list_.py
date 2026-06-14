@@ -1,21 +1,7 @@
 import pytest
 from unittest.mock import MagicMock, patch
-from gui.station_list import StationList
-import sys
+from gui.station_list import StationList  # noqa
 
-# Mock customtkinter module before importing station_list
-class DummyScrollableFrame:
-    def __init__(self, *args, **kwargs):
-        pass
-
-# Create a mock customtkinter module
-mock_ctk = MagicMock()
-mock_ctk.CTkScrollableFrame = DummyScrollableFrame
-mock_ctk.CTkFrame = MagicMock
-mock_ctk.CTkLabel = MagicMock
-mock_ctk.CTkButton = MagicMock
-
-sys.modules['customtkinter'] = mock_ctk
 
 # FIXTURE: fake stations + flags
 @pytest.fixture
@@ -41,15 +27,17 @@ def test_build_list_creates_rows(sample_stations, sample_flags):
     mock_frame_instance.pack = MagicMock()
     mock_frame_instance.pack_forget = MagicMock()
     mock_frame_instance.destroy = MagicMock()
-    
+
     mock_frame_class = MagicMock(return_value=mock_frame_instance)
     mock_label_class = MagicMock()
     mock_button_class = MagicMock()
-    
-    with patch("gui.station_list.ctk.CTkFrame", mock_frame_class), \
-         patch("gui.station_list.ctk.CTkLabel", mock_label_class), \
-         patch("gui.station_list.ctk.CTkButton", mock_button_class):
-        
+
+    with (
+        patch("gui.station_list.ctk.CTkScrollableFrame", MagicMock()),
+        patch("gui.station_list.ctk.CTkFrame", mock_frame_class),
+        patch("gui.station_list.ctk.CTkLabel", mock_label_class),
+        patch("gui.station_list.ctk.CTkButton", mock_button_class),
+    ):
         parent = MagicMock()
         play_callback = MagicMock()
 
@@ -68,15 +56,16 @@ def test_play_button_calls_callback(sample_stations, sample_flags):
     mock_frame_instance.pack = MagicMock()
     mock_frame_instance.pack_forget = MagicMock()
     mock_frame_instance.destroy = MagicMock()
-    
+
     mock_frame_class = MagicMock(return_value=mock_frame_instance)
     mock_label_class = MagicMock()
     mock_button_class = MagicMock()
-    
-    with patch("gui.station_list.ctk.CTkFrame", mock_frame_class), \
-         patch("gui.station_list.ctk.CTkLabel", mock_label_class), \
-         patch("gui.station_list.ctk.CTkButton", mock_button_class):
-        
+
+    with (
+        patch("gui.station_list.ctk.CTkFrame", mock_frame_class),
+        patch("gui.station_list.ctk.CTkLabel", mock_label_class),
+        patch("gui.station_list.ctk.CTkButton", mock_button_class),
+    ):
         parent = MagicMock()
         play_callback = MagicMock()
 
@@ -85,7 +74,7 @@ def test_play_button_calls_callback(sample_stations, sample_flags):
         # Grab the first created button's command
         # mock_ctk.CTkButton was called with command=lambda: play_callback(name)
         command = mock_button_class.call_args_list[0].kwargs["command"]
-       
+
         # Simulate clicking the button
         command()
 
@@ -96,7 +85,7 @@ def test_play_button_calls_callback(sample_stations, sample_flags):
 def test_filter_logic(sample_stations, sample_flags):
     # Track created frame instances
     frame_instances = []
-    
+
     def create_frame_instance(*args, **kwargs):
         instance = MagicMock()
         instance.pack = MagicMock()
@@ -104,15 +93,16 @@ def test_filter_logic(sample_stations, sample_flags):
         instance.destroy = MagicMock()
         frame_instances.append(instance)
         return instance
-    
+
     mock_frame_class = MagicMock(side_effect=create_frame_instance)
     mock_label_class = MagicMock()
     mock_button_class = MagicMock()
-    
-    with patch("gui.station_list.ctk.CTkFrame", mock_frame_class), \
-         patch("gui.station_list.ctk.CTkLabel", mock_label_class), \
-         patch("gui.station_list.ctk.CTkButton", mock_button_class):
-        
+
+    with (
+        patch("gui.station_list.ctk.CTkFrame", mock_frame_class),
+        patch("gui.station_list.ctk.CTkLabel", mock_label_class),
+        patch("gui.station_list.ctk.CTkButton", mock_button_class),
+    ):
         parent = MagicMock()
         play_callback = MagicMock()
 
@@ -150,7 +140,7 @@ def test_filter_logic(sample_stations, sample_flags):
 def test_filter_non_string(sample_stations, sample_flags):
     # Track created frame instances
     frame_instances = []
-    
+
     def create_frame_instance(*args, **kwargs):
         instance = MagicMock()
         instance.pack = MagicMock()
@@ -158,15 +148,16 @@ def test_filter_non_string(sample_stations, sample_flags):
         instance.destroy = MagicMock()
         frame_instances.append(instance)
         return instance
-    
+
     mock_frame_class = MagicMock(side_effect=create_frame_instance)
     mock_label_class = MagicMock()
     mock_button_class = MagicMock()
-    
-    with patch("gui.station_list.ctk.CTkFrame", mock_frame_class), \
-         patch("gui.station_list.ctk.CTkLabel", mock_label_class), \
-         patch("gui.station_list.ctk.CTkButton", mock_button_class):
-        
+
+    with (
+        patch("gui.station_list.ctk.CTkFrame", mock_frame_class),
+        patch("gui.station_list.ctk.CTkLabel", mock_label_class),
+        patch("gui.station_list.ctk.CTkButton", mock_button_class),
+    ):
         parent = MagicMock()
         play_callback = MagicMock()
 
@@ -183,3 +174,60 @@ def test_filter_non_string(sample_stations, sample_flags):
         for row in widget.rows.values():
             row.pack.assert_not_called()
             row.pack_forget.assert_not_called()
+
+
+def test_build_list_clears_existing_rows(sample_stations, sample_flags):
+    mock_frame_instance = MagicMock()
+    mock_frame_instance.pack = MagicMock()
+    mock_frame_instance.pack_forget = MagicMock()
+    mock_frame_instance.destroy = MagicMock()
+
+    mock_frame_class = MagicMock(return_value=mock_frame_instance)
+
+    with (
+        patch("gui.station_list.ctk.CTkFrame", mock_frame_class),
+        patch("gui.station_list.ctk.CTkLabel", MagicMock()),
+        patch("gui.station_list.ctk.CTkButton", MagicMock()),
+    ):
+        widget = StationList(MagicMock(), sample_stations, sample_flags, MagicMock())
+
+        # Call build_list again to trigger clearing logic
+        widget.build_list(sample_stations)
+
+        # destroy() should have been called on old rows
+        assert mock_frame_instance.destroy.called
+
+
+def test_flag_label_is_created(sample_stations, sample_flags):
+    mock_frame_instance = MagicMock()
+    mock_frame_instance.pack = MagicMock()
+
+    mock_frame_class = MagicMock(return_value=mock_frame_instance)
+    mock_label_class = MagicMock()
+    mock_button_class = MagicMock()
+
+    with (
+        patch("gui.station_list.ctk.CTkFrame", mock_frame_class),
+        patch("gui.station_list.ctk.CTkLabel", mock_label_class),
+        patch("gui.station_list.ctk.CTkButton", mock_button_class),
+    ):
+        StationList(MagicMock(), sample_stations, sample_flags, MagicMock())
+
+        # Assert flag label was created at least once
+        assert (
+            mock_label_class.call_args_list[0].kwargs["image"] in sample_flags.values()
+        )
+
+
+def test_filter_returns_early_on_non_string(sample_stations, sample_flags):
+    with (
+        patch("gui.station_list.ctk.CTkFrame", MagicMock(return_value=MagicMock())),
+        patch("gui.station_list.ctk.CTkLabel", MagicMock()),
+        patch("gui.station_list.ctk.CTkButton", MagicMock()),
+    ):
+        widget = StationList(MagicMock(), sample_stations, sample_flags, MagicMock())
+
+        # Should not crash and should not modify filtered_stations
+        before = widget.filtered_stations.copy()
+        widget.filter(123)  # non-string
+        assert widget.filtered_stations == before

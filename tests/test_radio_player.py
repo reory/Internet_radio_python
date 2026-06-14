@@ -1,8 +1,7 @@
-import pytest
+import pytest  # noqa
 from unittest.mock import MagicMock, patch
 from player.radio_player import RadioPlayer
 
-# PLAY TESTS
 
 @patch("player.radio_player.vlc")
 def test_play_success(mock_vlc):
@@ -42,6 +41,7 @@ def test_play_failure(mock_vlc):
 
 # STOP TEST
 
+
 def test_stop_calls_player_stop():
     rp = RadioPlayer()
     rp.player = MagicMock()
@@ -52,6 +52,7 @@ def test_stop_calls_player_stop():
 
 
 # VOLUME TEST
+
 
 def test_set_volume():
     rp = RadioPlayer()
@@ -64,14 +65,15 @@ def test_set_volume():
 
 # METADATA TESTS
 
+
 @patch("player.radio_player.vlc")
 def test_metadata_artist_title(mock_vlc):
     rp = RadioPlayer()
     rp.media = MagicMock()
 
     rp.media.get_meta.side_effect = [
-        "Song Title",   # Title
-        "Artist Name"   # Artist
+        "Song Title",  # Title
+        "Artist Name",  # Artist
     ]
 
     result = rp.get_metadata()
@@ -85,7 +87,7 @@ def test_metadata_title_only(mock_vlc):
 
     rp.media.get_meta.side_effect = [
         "Only Title",  # Title
-        ""             # Artist
+        "",  # Artist
     ]
 
     assert rp.get_metadata() == "Only Title"
@@ -97,8 +99,8 @@ def test_metadata_artist_only(mock_vlc):
     rp.media = MagicMock()
 
     rp.media.get_meta.side_effect = [
-        "",             # Title
-        "Only Artist"   # Artist
+        "",  # Title
+        "Only Artist",  # Artist
     ]
 
     assert rp.get_metadata() == "Only Artist"

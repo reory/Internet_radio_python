@@ -3,23 +3,24 @@ import builtins
 from unittest.mock import mock_open, patch
 from player.stations import load_stations
 
+
 def test_load_station_basic():
     """Mock JSON structure similar to real file"""
 
-    mock_json = json.dumps({
-        "US": {
-            "ROCK FM": {"url": "http://rock.fm/stream", "category": "ROCK"},
-            "JAZZ FM": {"url": "http://jazz.fm/stream"} # unknown category.
-        },
-        "_comment": {
-            "IgnoreMe": {"url": "http://ignore.me"}
-        },
-        "UK": {
-            "BBC RADIO 1": {"url": "http://bbc.co.uk/stream", "category": "POP"}
+    mock_json = json.dumps(
+        {
+            "US": {
+                "ROCK FM": {"url": "http://rock.fm/stream", "category": "ROCK"},
+                "JAZZ FM": {"url": "http://jazz.fm/stream"},  # unknown category.
+            },
+            "_comment": {"IgnoreMe": {"url": "http://ignore.me"}},
+            "UK": {
+                "BBC RADIO 1": {"url": "http://bbc.co.uk/stream", "category": "POP"}
+            },
         }
-    })
+    )
 
-    # Patch open() so load_stations reads our fake JSON 
+    # Patch open() so load_stations reads our fake JSON
     # instead of the real files.
     with patch.object(builtins, "open", mock_open(read_data=mock_json)):
         stations = load_stations()
