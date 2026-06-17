@@ -1,7 +1,5 @@
 import customtkinter as ctk
 
-print("IMPORTING SEARCH BAR")
-
 
 class SearchBar(ctk.CTkFrame):
     def __init__(self, parent, on_search):
